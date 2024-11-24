@@ -79,22 +79,22 @@ function App() {
       <FileUploader onFileLoad={handleFileLoad} />
       {error && <p className="error">{error}</p>}
       {records.length > 0 && (
-      <>
-        <RecordTable
-          records={records}
-          selectedRecords={selectedRecords}
-          setSelectedRecords={setSelectedRecords}
-        />
-        <MapView records={records} selectedRecords={selectedRecords} />
-        <ExportButton
-          records={selectedRecords}
-          allRecords={records}
-          fileName={fileName}
-        />
-      </>
-    )}
-  </div>
-);
+        <>
+          <RecordTable
+            records={records}
+            selectedRecords={selectedRecords}
+            setSelectedRecords={setSelectedRecords}
+          />
+          <ExportButton
+            records={selectedRecords}
+            allRecords={records}
+            fileName={fileName}
+          />
+          <MapView records={records} selectedRecords={selectedRecords} />
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App; 

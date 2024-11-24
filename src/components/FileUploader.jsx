@@ -11,10 +11,14 @@ function FileUploader({ onFileLoad }) {
 
   return (
     <div className="file-uploader">
-      <input type="file" accept=".tra" onChange={handleFileChange} />
+      <label htmlFor="file-upload" className="custom-file-upload">
+        Datei auswählen
+      </label>
+      <input id="file-upload" type="file" accept=".tra" onChange={handleFileChange} />
     </div>
   );
 }
+
 FileUploader.propTypes = {
   onFileLoad: PropTypes.func.isRequired,
 };
