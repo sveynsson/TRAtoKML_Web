@@ -1,8 +1,17 @@
-# React + Vite
+TraToKML ist eine benutzerfreundliche Webanwendung zur Konvertierung von TRA-Dateien in das KML-Format. Ideal für die Nutzung mit Kartensoftware wie Google Earth.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Funktionen
+Datei-Upload: Einfaches Hochladen von .tra-Dateien mit geografischen Daten.
+GK-Zonenauswahl: Auswahl spezifischer Gauss-Krüger-Zonen zur gezielten Datenfilterung.
+Interaktive Kartenansicht: Visualisierung ausgewählter Datenpunkte und deren Verbindungen auf einer interaktiven Karte mithilfe von Leaflet.
+KML-Export: Generierung und Download von KML-Dateien zur weiteren Verwendung in verschiedenen Kartierungsanwendungen.
+Responsives Design: Optimierte Darstellung auf verschiedenen Geräten und Bildschirmgrößen.
 
-Currently, two official plugins are available:
+Lizenz
+Dieses Projekt ist unter der MIT License lizenziert.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Kontakt
+Bei Fragen oder Anregungen erreichst du mich unter:
+
+GitHub: @sveynsson
+E-Mail: s.rodemann@gi-consult.de
