@@ -1,21 +1,34 @@
 // src/components/ExportButton.jsx
 import PropTypes from 'prop-types';
 import { saveAs } from 'file-saver';
+import './ExportButton.css'; // Falls du CSS für den Button hinzugefügt hast
 
 function ExportButton({ records, allRecords, fileName }) {
+  // Funktion zum Exportieren der KML-Datei
   const exportToKML = () => {
     if (!isContiguous(records, allRecords)) {
       alert('Die ausgewählten Elemente müssen einen zusammenhängenden Bereich bilden.');
       return;
     }
 
+    const kmlContent = generateKMLContent(records, fileName);
+    const blob = new Blob([kmlContent], { type: 'application/vnd.google-earth.kml+xml' });
+    saveAs(blob, `${fileName}.kml`);
+
+    // Bestätigung anzeigen
+    alert(`Die KML-Datei "${fileName}.kml" wurde erfolgreich heruntergeladen.`);
+  };
+
+  // Funktion zur Generierung des KML-Inhalts
+  const generateKMLContent = (records, fileName) => {
     const coordinates = records
       .map((record) => `${record.lon},${record.lat},0`)
       .join(' ');
 
-    const kmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+    return `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
+    <name>${fileName}</name>
     <Placemark>
       <name>TRA-Trasse</name>
       <LineString>
@@ -26,11 +39,9 @@ function ExportButton({ records, allRecords, fileName }) {
     </Placemark>
   </Document>
 </kml>`;
-
-    const blob = new Blob([kmlContent], { type: 'application/vnd.google-earth.kml+xml' });
-    saveAs(blob, `${fileName}.kml`);
   };
 
+  // Funktion zur Überprüfung, ob die ausgewählten Records zusammenhängend sind
   const isContiguous = (records, allRecords) => {
     if (records.length === 0) return false;
 
